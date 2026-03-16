@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cafeneaua Matinal - Ploiesti</title>
+  <meta name="description" content="Pagina de prezentare pentru Cafeneaua Matinal din Ploiesti. Toate informatiile sunt fictive." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Literata:opsz,wght@7..72,400;7..72,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/sandstone/bootstrap.min.css" />
+
+  <style>
+    :root {
+      --matinal-cream: #f4eee6;
+      --matinal-terracotta: #b5532f;
+      --matinal-dark: #2f241f;
+      --matinal-gold: #d8a850;
+      --matinal-smoke: #6c5b53;
+    }
+
+    body {
+      font-family: "Literata", Georgia, serif;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(216, 168, 80, 0.16), transparent 26%),
+        radial-gradient(circle at 88% 8%, rgba(181, 83, 47, 0.14), transparent 30%),
+        linear-gradient(180deg, #faf7f2 0%, #f3ece3 100%);
+      color: var(--matinal-dark);
+      min-height: 100vh;
+    }
+
+    .brand-title {
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 0.05em;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1;
+    }
+
+    .hero-box {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(181, 83, 47, 0.2);
+      border-radius: 1.25rem;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .hero-stripe {
+      background: linear-gradient(90deg, var(--matinal-terracotta), var(--matinal-gold));
+      color: #fff8ef;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .img-cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .section-title {
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 0.04em;
+      color: var(--matinal-terracotta);
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .soft-card {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(108, 91, 83, 0.2);
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    }
+
+    .badge-note {
+      background: #fff1de;
+      color: #8f3f1f;
+      border: 1px solid #f3d2ad;
+    }
+
+    .timeline-item {
+      border-left: 4px solid var(--matinal-gold);
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .map-frame {
+      width: 100%;
+      min-height: 320px;
+      border: 0;
+      border-radius: 0.8rem;
+    }
+
+    .rank-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    .promo-box {
+      background: linear-gradient(135deg, #fff5e6, #ffe3bf);
+      border: 1px solid #f3c88f;
+      border-radius: 1rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07);
+    }
+
+    footer {
+      color: var(--matinal-smoke);
+    }
+  </style>
+</head>
+<body>
+  <header class="container py-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+      <div>
+        <h1 class="brand-title mb-0">CAFENEAUA MATINAL</h1>
+        <p class="mb-0 text-muted">Ploiesti · Bd. Republicii · Concept hibrid TO GO + TO STAY</p>
+      </div>
+      <span class="badge badge-note p-2">Toate informatiile de pe aceasta pagina sunt fictive</span>
+    </div>
+  </header>
+
+  <main class="container pb-5">
+    <section class="hero-box mb-4">
+      <div class="hero-stripe px-3 py-2">Atmosfera industrial-calda · Teracota, lemn, lumina 2700K</div>
+      <div class="row g-0">
+        <div class="col-lg-6 p-4 p-lg-5">
+          <h2 class="section-title">Dimineti bune in centrul Ploiestiului</h2>
+          <p>
+            Matinal este o cafenea fictiva inspirata din planul de business din tema 1:
+            program devreme, specialty accesibil si locuri confortabile pentru o pauza scurta
+            sau lucru la laptop.
+          </p>
+          <ul class="mb-0">
+            <li>8-10 locuri in interior + terasa mica cu 2-3 mese</li>
+            <li>Concept: TO GO rapid + TO STAY relaxat</li>
+            <li>Public tinta: navetisti, studenti, birouri din zona centrala</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <img
+            src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1200&q=80"
+            alt="Interior de cafenea cu lumina calda"
+            class="img-cover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="row g-4 mb-4">
+      <div class="col-lg-6">
+        <div class="soft-card p-4 h-100">
+          <h3 class="section-title">Program</h3>
+          <div class="table-responsive">
+            <table class="table align-middle mb-0">
+              <thead>
+                <tr>
+                  <th>Zi</th>
+                  <th>Orar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Luni - Vineri</td><td>06:30 - 18:00</td></tr>
+                <tr><td>Sambata</td><td>08:00 - 16:00</td></tr>
+                <tr><td>Duminica</td><td>08:00 - 16:00</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <small class="text-muted d-block mt-3">Program fictiv, construit conform conceptului Matinal din tema 1.</small>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="soft-card p-4 h-100">
+          <h3 class="section-title">Adresa & punct Google Maps</h3>
+          <p class="mb-2"><strong>Adresa fictiva:</strong> Bd. Republicii 124, Ploiesti, Prahova</p>
+          <p class="mb-3"><strong>Segment:</strong> zona 100-180 (centrul pietonal activ)</p>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bulevardul+Republicii+124+Ploiesti">
+              Deschide punctul in Maps
+            </a>
+            <a class="btn btn-outline-secondary" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Bulevardul+Republicii+124+Ploiesti">
+              Indicatii traseu
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="promo-box p-4 p-md-5 mb-4">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-8">
+          <h3 class="section-title mb-1">Promotie de Paste (fictiva)</h3>
+          <p class="mb-0">
+            Oferta sezoniera: <strong>3+1 GRATIS</strong> la bauturi pe baza de espresso
+            (orice a patra bautura de valoare egala sau mai mica este gratuita).
+          </p>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <span class="badge text-bg-dark p-2">Valabil: 10-30 aprilie</span>
+          <div><small class="text-muted">Campanie demonstrativa, date fictive</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="row g-4 mb-4">
+      <div class="col-lg-7">
+        <div class="soft-card p-3 p-md-4 h-100">
+          <h3 class="section-title">Harta & indicatii de traseu</h3>
+          <iframe
+            class="map-frame"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Bulevardul+Republicii+124+Ploiesti&output=embed"
+            title="Harta Cafeneaua Matinal"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="soft-card p-4 h-100">
+          <h3 class="section-title">Repere locale</h3>
+          <ul class="mb-3">
+            <li>5 minute de mers pe jos de la Palatul Culturii</li>
+            <li>7 minute de la Teatrul Toma Caragiu</li>
+            <li>Aproape de Muzeul Ceasurilor si zona Esplanada</li>
+          </ul>
+          <h4 class="h6 text-uppercase text-muted">Trasee rapide (fictive)</h4>
+          <ul class="mb-0">
+            <li>Din Gara de Sud: 14 minute cu autobuzul + 4 minute pe jos</li>
+            <li>Din centru civic: 8-10 minute pe jos</li>
+            <li>Cu masina: parcare publica in zona adiacenta</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="row g-4 mb-4">
+      <div class="col-lg-7">
+        <div class="soft-card p-4 h-100">
+          <h3 class="section-title">Meniu cafenea (fictiv)</h3>
+          <div class="table-responsive mb-3">
+            <table class="table table-striped align-middle mb-0">
+              <thead>
+                <tr>
+                  <th>Categoria</th>
+                  <th>Produs</th>
+                  <th>Pret</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Cafea</td><td>Espresso</td><td>11 RON</td></tr>
+                <tr><td>Cafea</td><td>Americano</td><td>12 RON</td></tr>
+                <tr><td>Cafea</td><td>Cappuccino</td><td>15 RON</td></tr>
+                <tr><td>Cafea</td><td>Flat White</td><td>16 RON</td></tr>
+                <tr><td>Cafea</td><td>Latte</td><td>17 RON</td></tr>
+                <tr><td>Bauturi racoritoare</td><td>Limonada clasica</td><td>14 RON</td></tr>
+                <tr><td>Bauturi racoritoare</td><td>Fresh portocale</td><td>16 RON</td></tr>
+                <tr><td>Bauturi racoritoare</td><td>Ice Tea artizanal</td><td>13 RON</td></tr>
+                <tr><td>Bauturi racoritoare</td><td>Apa plata 500ml</td><td>7 RON</td></tr>
+                <tr><td>Gustari patiserie</td><td>Croissant unt</td><td>10 RON</td></tr>
+                <tr><td>Gustari patiserie</td><td>Croissant cu ciocolata</td><td>12 RON</td></tr>
+                <tr><td>Cofetarie</td><td>Amandina</td><td>15 RON</td></tr>
+                <tr><td>Cofetarie</td><td>Tarta cu fructe</td><td>17 RON</td></tr>
+                <tr><td>Cofetarie</td><td>Ecler vanilie</td><td>14 RON</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <small class="text-muted">Preturi orientative, folosite in scop demonstrativ.</small>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="soft-card p-4 h-100">
+          <h3 class="section-title">6 meniuri speciale</h3>
+          <ol class="mb-0">
+            <li class="mb-2"><strong>Meniu Start Matinal</strong>: Espresso + Apa plata + Croissant unt = <strong>24 RON</strong> (economisesti 4 RON)</li>
+            <li class="mb-2"><strong>Meniu Office Boost</strong>: Americano + Apa plata + Ecler vanilie = <strong>30 RON</strong> (economisesti 3 RON)</li>
+            <li class="mb-2"><strong>Meniu Dolce Break</strong>: Cappuccino + Apa plata + Amandina = <strong>34 RON</strong> (economisesti 3 RON)</li>
+            <li class="mb-2"><strong>Meniu City Latte</strong>: Latte + Apa plata + Tarta cu fructe = <strong>38 RON</strong> (economisesti 3 RON)</li>
+            <li class="mb-2"><strong>Meniu Weekend Vibe</strong>: Flat White + Apa plata + Croissant cu ciocolata = <strong>32 RON</strong> (economisesti 3 RON)</li>
+            <li><strong>Meniu Sweet Focus</strong>: Cappuccino + Apa plata + Croissant unt = <strong>29 RON</strong> (economisesti 3 RON)</li>
+          </ol>
+          <small class="text-muted d-block mt-3">Toate combinatiile sunt fictive si gandite pentru prezentare.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="row g-4 mb-4">
+      <div class="col-lg-6">
+        <div class="soft-card p-4 h-100">
+          <h3 class="section-title">Istoric cafenea</h3>
+          <div class="timeline-item">
+            <strong>Martie 2026</strong>
+            <p class="mb-0">Conceptul Matinal este conturat ca proiect de cafenea de dimineata, cu accent pe specialty accesibil.</p>
+          </div>
+          <div class="timeline-item">
+            <strong>Mai 2026</strong>
+            <p class="mb-0">Amenajare inspirata de stilul industrial-cald: teracota, lemn natural, lumina ambientala.</p>
+          </div>
+          <div class="timeline-item mb-0">
+            <strong>Iulie 2026</strong>
+            <p class="mb-0">Deschidere oficiala fictiva pe Bd. Republicii, cu meniu scurt si viteza mare la servire.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="soft-card p-4 h-100">
+          <h3 class="section-title">Evenimente (fictive)</h3>
+          <div class="mb-3">
+            <h4 class="h5 mb-1">Morning Brew Club</h4>
+            <p class="mb-0 text-muted">In fiecare miercuri, 07:30 - 08:00 · degustare de origini noi de cafea.</p>
+          </div>
+          <div class="mb-3">
+            <h4 class="h5 mb-1">Latte Art Friday</h4>
+            <p class="mb-0 text-muted">Vineri, 18:30 · sesiune demonstrativa cu barista invitati.</p>
+          </div>
+          <div>
+            <h4 class="h5 mb-1">Quiz de specialitate</h4>
+            <p class="mb-0 text-muted">Eveniment lunar (prima sambata) cu premii simbolice: vouchere si pachete de boabe.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="row g-4 mb-4">
+      <div class="col-lg-4">
+        <div class="soft-card p-4 h-100">
+          <h3 class="section-title">Metode alternative de preparare</h3>
+          <ul class="mb-0">
+            <li><strong>V60:</strong> profil curat, note florale, corp lejer.</li>
+            <li><strong>Aeropress:</strong> echilibrata, rapida, potrivita pentru to-go.</li>
+            <li><strong>French Press:</strong> corp intens, textura catifelata.</li>
+            <li><strong>Moka Pot:</strong> concentrata, apropiata de espresso.</li>
+            <li><strong>Chemex:</strong> claritate ridicata, postgust lung.</li>
+          </ul>
+          <small class="text-muted d-block mt-3">Selectie fictiva pentru prezentare.</small>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="soft-card p-4 h-100">
+          <h3 class="section-title">Retete cocktail cu cafea</h3>
+          <ul class="mb-0">
+            <li><strong>Matinal Espresso Tonic:</strong> espresso + tonic + coaja de portocala.</li>
+            <li><strong>Coffee Negroni Twist:</strong> infuzie rece de cafea + bitter + vermut.</li>
+            <li><strong>Caramel Cold Shake:</strong> cold brew + sirop caramel + lapte vegetal.</li>
+            <li><strong>Coco Affogato Fizz:</strong> espresso + apa minerala + crema de cocos.</li>
+          </ul>
+          <small class="text-muted d-block mt-3">Retete fictive, create pentru pagina demo.</small>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="soft-card p-4 h-100">
+          <h3 class="section-title">Retete Cold Brew Coffee</h3>
+          <ul class="mb-0">
+            <li><strong>Classic 1:10:</strong> 100g cafea / 1L apa, infuzare 14 ore la rece.</li>
+            <li><strong>Citrus Brew:</strong> cold brew + felii lamaie + menta.</li>
+            <li><strong>Vanilla Oat:</strong> cold brew + lapte de ovaz + vanilie naturala.</li>
+            <li><strong>Spiced Brew:</strong> cold brew + scortisoara + cardamom.</li>
+          </ul>
+          <small class="text-muted d-block mt-3">Retete fictive pentru inspiratie.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="row g-4 mb-4">
+      <div class="col-lg-4">
+        <div class="soft-card p-4 h-100">
+          <h3 class="section-title">Top 10 cafenele din Europa</h3>
+          <ol class="rank-list mb-0">
+            <li>North Harbor Coffee - Copenhaga</li>
+            <li>Lumen Roastery - Amsterdam</li>
+            <li>Atelier 9 Beans - Berlin</li>
+            <li>Riviera Brew House - Nisa</li>
+            <li>Basilica Espresso Lab - Roma</li>
+            <li>Portside Filter Club - Lisabona</li>
+            <li>Velvet Steam Bar - Viena</li>
+            <li>Canal Roast Room - Bruges</li>
+            <li>Old Town Drip Co. - Praga</li>
+            <li>Nordic Cup Society - Stockholm</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="soft-card p-4 h-100">
+          <h3 class="section-title">Top 10 cafenele din Romania</h3>
+          <ol class="rank-list mb-0">
+            <li>Urban Roast Atelier - Bucuresti</li>
+            <li>Transilvania Brew Lab - Cluj-Napoca</li>
+            <li>Citadel Coffee Room - Brasov</li>
+            <li>Delta Beans House - Constanta</li>
+            <li>Piata Noua Espresso - Timisoara</li>
+            <li>Royal Drip Club - Iasi</li>
+            <li>Sibiu Steam Bar - Sibiu</li>
+            <li>Hilltop Roastery - Oradea</li>
+            <li>Aria Coffee Hall - Craiova</li>
+            <li>Brio Specialty Spot - Targu Mures</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="soft-card p-4 h-100">
+          <h3 class="section-title">Top 10 cafenele din Ploiesti</h3>
+          <ol class="rank-list mb-0">
+            <li>Republicii Roast Spot</li>
+            <li>Civic Espresso Point</li>
+            <li>Artisan Cup Studio</li>
+            <li><strong>Cafeneaua Matinal</strong> ⭐</li>
+            <li>Old Clock Coffee Corner</li>
+            <li>Petrol City Brew Lab</li>
+            <li>Esplanada Drip House</li>
+            <li>Blues Filter Bar</li>
+            <li>Central Beans Atelier</li>
+            <li>Prahova Latte Club</li>
+          </ol>
+          <small class="text-muted d-block mt-3">Clasamente demonstrative, 100% fictive.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="row g-4">
+      <div class="col-md-4">
+        <div class="soft-card overflow-hidden h-100">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80" alt="Espressor si ceasca de cafea" class="img-cover" style="height: 220px;" />
+          <div class="p-3">
+            <h4 class="h5">Specialty accesibil</h4>
+            <p class="mb-0 text-muted">Inspirat din directia de business pentru nisa de dimineata in Ploiesti.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="soft-card overflow-hidden h-100">
+          <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80" alt="Spatiu de cafenea cu mese" class="img-cover" style="height: 220px;" />
+          <div class="p-3">
+            <h4 class="h5">TO GO + TO STAY</h4>
+            <p class="mb-0 text-muted">Flux rapid la tejghea si zona scurta de socializare la interior.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="soft-card overflow-hidden h-100">
+          <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=900&q=80" alt="Boabe de cafea proaspat prajite" class="img-cover" style="height: 220px;" />
+          <div class="p-3">
+            <h4 class="h5">Comunitate locala</h4>
+            <p class="mb-0 text-muted">Evenimente mici, atmosfera prietenoasa si brand orientat pe dimineata.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container pb-4 pt-2">
+    <hr />
+    <p class="mb-1">© 2026 Cafeneaua Matinal - pagina demonstrativa</p>
+    <small>Informatiile de program, adresa, traseu, istoric, evenimente, retete, topuri si promotii sunt fictive.</small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
