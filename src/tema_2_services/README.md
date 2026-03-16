@@ -158,6 +158,6 @@ Response
 
 ---
 
-**Autor**: Elev - Tema 2  
+**Autor**: Daniel Ionescu - Tema 2  
 **Data**: Martie 2026  
 **Domeniu**: Cafenea MATINAL, Ploiești, Bd. Republicii
