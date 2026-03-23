@@ -10,7 +10,7 @@ os.environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "3")
 os.environ.setdefault("TF_ENABLE_ONEDNN_OPTS", "0")
 logging.getLogger("tensorflow").setLevel(logging.ERROR)
 
-from src.tema_2_services.service import RAGAssistant
+from src.tema_2_services.service_fitness import RAGAssistant
 
 from pydantic import BaseModel
 import asyncio

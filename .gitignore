@@ -44,3 +44,4 @@ temp_files/
 *.venv/
 *venv/
 *.deepeval/
+tema_3_evaluation/output/
