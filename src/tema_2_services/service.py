@@ -19,6 +19,7 @@ CHUNKS_JSON_PATH = os.path.join(DATA_DIR, "data_chunks.json")
 FAISS_INDEX_PATH = os.path.join(DATA_DIR, "faiss.index")
 FAISS_META_PATH = os.path.join(DATA_DIR, "faiss.index.meta")
 EMBEDDING_N_FEATURES = int(os.environ.get("EMBEDDING_N_FEATURES", "2048"))
+LLM_MAX_TOKENS = int(os.environ.get("LLM_MAX_TOKENS", "512"))
 
 WEB_URLS = [u for u in os.environ.get("WEB_URLS", "").split(";") if u]
 URL_RELEVANCE_KEYWORDS = (
@@ -182,6 +183,7 @@ class RAGAssistant:
             response = self.client.chat.completions.create(
                 messages=messages,
                 model=self.groq_model,
+                max_tokens=LLM_MAX_TOKENS,
             )
             return response.choices[0].message.content
         except Exception as exc:

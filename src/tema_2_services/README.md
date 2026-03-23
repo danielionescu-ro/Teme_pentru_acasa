@@ -1,163 +1,113 @@
-# Tema 2: Asistent RAG - Cafenea Matinal Ploiești
+# Tema 2: Asistent RAG - Cafenea Matinal
 
-## 📋 Descriere
-Asistent inteligent cu Retrieval-Augmented Generation (RAG) pentru cafenea **MATINAL** situată pe **Bd. Republicii, Ploiești**. Asistentul răspunde **doar la întrebări relevante** pentru domeniul de activitate al cafenelei.
+## Descriere
+Acest modul implementeaza un asistent RAG pentru Cafeneaua MATINAL din Ploiesti.
+Asistentul filtreaza intrebarile irelevante, extrage context din surse web, face retrieval cu FAISS (sau fallback NumPy) si trimite contextul catre LLM.
 
-## 🎯 Funcionalități Implementate
+Fisier principal: `src/tema_2_services/service.py`
 
-### 1. **Relevance Detection** (Detecția Relevanței)
-- ✅ Propozitie de referință specifică: *"Aceasta este o intrebare despre cafeneaua Matinal din Ploiesti - meniu, cafea, comenzi, locatie, program, preturi, ambianta de lucru, produse si servicii."*
-- ✅ Threshold de similaritate: **0.45** (echilibru între acceptare si filtrare)
-- ✅ Embeddings: Universal Sentence Encoder
+## Versiune Python suportata
+- Varianta testata in acest workspace: Python 3.10.11
+- Compatibilitate recomandata: Python >= 3.10
 
-### 2. **System Prompt** (Instrucții LLM)
-Asistentul este ghidat să răspundă la:
-- Meniu și tipuri de cafea
-- Comenzi și procesul de vânzare
-- Locație și acces
-- Program de funcționare
-- Prețuri și promoții
-- Brigadă de lucru (Wi-Fi, mese, prize, ambianță)
-- Reguli și facilități
+Motiv: codul foloseste typing modern (ex: `str | list[str]`) si pachete validate in `.venv` pe 3.10.11.
 
-Respinge **politicos** întrebări irelevante.
+## Modul de functionare
 
-### 3. **User Prompt** (Template Mesaj Utilizator)
-Structura mesajului includeL
-- Context din RAG (chunks relevante)
-- Întrebarea clientului
-- Indicații pentru răspuns scurt și util
+### 1. Configurare `.env`
+Variabile minime:
 
-### 4. **Error Messages** (Mesaje Ghidare)
-- ✅ Mesaj pentru input gol
-- ✅ Mesaj pentru întrebări irelevante
-- ✅ Mesaj pentru erori de conectare la LLM
+```env
+GROQ_API_KEY=...
+GROQ_BASE_URL=https://openrouter.ai/api/v1
+GROQ_MODEL=openai/gpt-5.4-nano
 
-### 5. **Test Queries** (Teste Comprehensive)
-```
-✓ Test 1: "Care e programul cafenelei Matinal?" (RELEVANT)
-✓ Test 2: "Aveti Wi-Fi para a lucra cu laptopul?" (RELEVANT)
-✓ Test 3: "Cat costa o cafea Americano?" (RELEVANT)
-✗ Test 4: "Care e capitala Frantei?" (IRRELEVANT)
-✗ Test 5: "Cum se joaca sah?" (IRRELEVANT)
-✓ Test 6: "" (EMPTY - teste mesaj gol)
+DATA_DIR=./data
+WEB_URLS=https://224.ro/matinal/;https://exemplu.ro/pagina-cafea
+EMBEDDING_N_FEATURES=2048
+LLM_MAX_TOKENS=512
 ```
 
-## 🔧 Setup & Configurare
+### 2. Instalare dependinte
+Din radacina proiectului:
 
-### 1. Instalare Dependențe
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Configurare Environment
-Creează fișierul `.env` (sau copy din `.env.example`):
+### 3. Rulare script direct
 
-```env
-# API Keys
-GROQ_API_KEY=your_groq_api_key_here
-GROQ_BASE_URL=https://api.groq.com/openai/v1
-
-# Data Directory
-DATA_DIR=/app/data
-
-# URLs pentru RAG (separate prin ;)
-# IMPORTANT: Adaugă link-urile cu informații despre Cafenea Matinal
-WEB_URLS=https://example.com/matinal;https://facebook.com/cafenea-matinal
-
-# Model URL
-USE_MODEL_URL=https://tfhub.dev/google/universal-sentence-encoder/4
-```
-
-### 3. Adaugă Link-urile Cafenelei
-Modifică `WEB_URLS` cu link-urile reale:
-- Site propriu al cafenelei (dacă există)
-- Pagina Facebook / Instagram
-- Google Business Profile
-- Platforme de review (TripAdvisor, Google Maps)
-- Blog cu detalii despre meniu, program, preturi
-
-## 🚀 Rulare & Testare
-
-### Rulare teste built-in:
 ```bash
-python service.py
+python src/tema_2_services/service.py
 ```
 
-Output așteptat:
-```
-=== TESTE ASISTENT MATINAL ===
+Ruleaza testele built-in din blocul `if __name__ == "__main__":`.
 
-[Test 1 - Intrebare relevanta]
-Bună! Programul cafenelei Matinal este...
+### 4. Mod chat interactiv
 
-[Test 2 - Intrebare relevanta]
-Da, avem Wi-Fi gratuit pentru clienți...
-
-[Test 3 - Intrebare relevanta]
-Americano costă 12 RON...
-
-[Test 4 - Intrebare IRELEVANTA]
-Scuza-ma! Sunt specializat doar in informatii despre Cafenea MATINAL...
-
-[Test 5 - Intrebare IRELEVANTA]
-Scuza-ma! Sunt specializat doar in informatii despre Cafenea MATINAL...
-
-[Test 6 - Mesaj gol]
-Bună! Sunt asistentul cafenelei MATINAL...
+```bash
+python src/tema_2_services/service.py --chat
 ```
 
-## 📊 Arhitectura RAG
+### 5. Rebuild cache RAG
 
-```
-User Input
-    ↓
-[Relevance Check] ← Compare cu referință embedding
-    ↓
-  Relevant? → No → Mesaj "Scuza-ma!"
-    ↓ Yes
-[Load Web Docs] → WebBaseLoader din WEB_URLS
-    ↓
-[Chunk Text] → RecursiveCharacterTextSplitter (300 chars)
-    ↓
-[Build/Load FAISS Index] → Embeddings cache
-    ↓
-[Retrieve Top-K] → Similaritate cosine cu query
-    ↓
-[Send to LLM] → Context + System Prompt + User Query
-    ↓
-Response
+```bash
+python src/tema_2_services/service.py --rebuild
 ```
 
-## 🎛️ Parametri Configurabili
+## Flux intern (rezumat)
+1. Validare configurare API key.
+2. Filtrare URL-uri relevante pentru domeniul cafenea/HoReCa.
+3. Incarcare documente web; fallback la `index.html` local daca web fail.
+4. Chunking text cu `RecursiveCharacterTextSplitter`.
+5. Embedding cu `HashingVectorizer`.
+6. Retrieval top-k cu FAISS; fallback NumPy daca FAISS nu este disponibil.
+7. Prompt catre LLM cu context si reguli de raspuns.
+8. Fallback contextual daca LLM nu poate raspunde.
 
-| Parametru | Valoare | Descriere |
-|-----------|---------|-----------|
-| `chunk_size` | 300 | Dimensiune chunk text |
-| `chunk_overlap` | 20 | Suprapunere între chunks |
-| `k` (retrieval) | 5 | Număr chunks relevante |
-| `similarity_threshold` | 0.45 | Prag relevație (0-1) |
-| `model` | openai/gpt-oss-20b | Model LLM via Groq |
+## Diferente fata de fisierul original
+Referinta original: https://github.com/dragosbajenaru1001/Teme_pentru_acasa/blob/main/src/tema_2_services/service.py
 
-## 📝 Observații Importante
+### Modificari tehnice principale
+- Embeddings:
+    - Original: TensorFlow + Universal Sentence Encoder (`tensorflow`, `tensorflow_hub`, `USE_MODEL_URL`).
+    - Actual: `HashingVectorizer` din scikit-learn, fara dependinte TensorFlow.
 
-1. **Caching**: Index FAISS este cache-uit pe disc pentru performanță
-2. **Hash validation**: Verifycare că URL-urile nu s-au schimbat
-3. **Error Handling**: Excepții la LLM sunt captate și raportate corespunzător
-4. **Romanian Support**: Cod și mesaje 100% în limba română
+- Relevanta:
+    - Original: o singura propozitie de referinta (`self.relevance`) si prag fix 0.5.
+    - Actual: mai multe propozitii de referinta (`self.relevance_refs`) si prag 0.20.
 
-## ✅ Cerințe Tema Completate
+- Surse RAG:
+    - Original: citea direct din `WEB_URLS`.
+    - Actual: filtreaza URL-urile cu `URL_RELEVANCE_KEYWORDS` si adauga fallback local din `index.html`.
 
-- [x] Propozitie referință specifică pentru domeniu
-- [x] System prompt detaliat
-- [x] User prompt cu context RAG
-- [x] Mesaje eroare customizate
-- [x] Query-uri test (relevante + irelevante)
-- [x] URL-uri web pentru RAG
-- [x] Filtrare relevanță
+- Retrieval:
+    - Original: se baza pe FAISS importat direct.
+    - Actual: import FAISS in runtime cu fallback pe rankare cosine NumPy daca FAISS lipseste.
 
----
+- Promptare LLM:
+    - Original: model hardcodat in apel (`openai/gpt-oss-20b`) si mesaje TODO.
+    - Actual: model din env (`GROQ_MODEL`), prompt de sistem complet, mesaje utilizator personalizate.
 
-**Autor**: Daniel Ionescu - Tema 2  
-**Data**: Martie 2026  
-**Domeniu**: Cafenea MATINAL, Ploiești, Bd. Republicii
+- Control cost/tokeni:
+    - Original: fara limita explicita de tokeni in request.
+    - Actual: `LLM_MAX_TOKENS` configurabil din env (default 512), folosit in `chat.completions.create(...)`.
+
+- Tratare erori:
+    - Original: mesaj generic la exceptie.
+    - Actual: fallback contextual din chunks, plus mesaj explicit pentru erori OpenRouter guardrails/privacy.
+
+- Operare:
+    - Original: teste minimale in main.
+    - Actual: comenzi CLI `--chat` si `--rebuild` + utilitar `_clear_cached_data`.
+
+## Parametri configurabili importanti
+- `DATA_DIR` - locatie cache chunks/index
+- `WEB_URLS` - surse pentru RAG
+- `EMBEDDING_N_FEATURES` - dimensiune vectorizare hashing
+- `GROQ_MODEL` - model LLM folosit
+- `LLM_MAX_TOKENS` - limita max tokeni per raspuns
+
+## Observatii
+- Daca LLM nu este accesibil (credite insuficiente, guardrails, endpoint blocat), serviciul raspunde cu fallback contextual din datele RAG.
+- Pentru raspunsuri live stabile pe OpenRouter, foloseste un model disponibil contului si o limita rezonabila de tokeni.
